@@ -10,3 +10,10 @@ C:\Users\8LAYER11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Pr
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Aksyon Project.exe.config
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.exe
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.pdb
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Aksyon Project.exe
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Aksyon Project.pdb
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.csprojResolveAssemblyReference.cache
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.Properties.Resources.resources
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.UserDataWindow.resources
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.csproj.GenerateResource.Cache
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.MainWindow.resources
