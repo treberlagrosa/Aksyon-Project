@@ -1,0 +1,9 @@
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\bin\Debug\Aksyon Project.exe.config
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\bin\Debug\Aksyon Project.exe
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\bin\Debug\Aksyon Project.pdb
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon Project.csprojResolveAssemblyReference.cache
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon_Project.Properties.Resources.resources
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon Project.csproj.GenerateResource.Cache
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon Project.exe
+c:\users\8layer11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon Project.pdb
+C:\Users\8LAYER11\documents\visual studio 2015\Projects\Aksyon Project\Aksyon Project\obj\Debug\Aksyon_Project.UserDataWindow.resources
