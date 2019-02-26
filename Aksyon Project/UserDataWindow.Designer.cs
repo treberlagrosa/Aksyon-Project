@@ -582,7 +582,6 @@
             this.btnAcquire.TabIndex = 2;
             this.btnAcquire.Text = "Start accquisition sequence";
             this.btnAcquire.UseVisualStyleBackColor = true;
-            this.btnAcquire.Click += new System.EventHandler(this.btnAcquire_Click);
             // 
             // button3
             // 
@@ -644,7 +643,6 @@
             // 
             // TouchScreenTimer
             // 
-            this.TouchScreenTimer.Tick += new System.EventHandler(this.TouchScreenTimer_Tick);
             // 
             // UserDataWindow
             // 
@@ -658,8 +656,6 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UserDataWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.UserDataWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRightLittle)).EndInit();
