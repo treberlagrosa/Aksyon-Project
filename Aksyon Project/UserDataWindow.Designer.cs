@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pboxRightLittle = new System.Windows.Forms.PictureBox();
+            this.pboxRightRing = new System.Windows.Forms.PictureBox();
+            this.pboxRightMiddle = new System.Windows.Forms.PictureBox();
+            this.pboxRightIndex = new System.Windows.Forms.PictureBox();
+            this.pboxRightThumb = new System.Windows.Forms.PictureBox();
+            this.pboxLeftLittle = new System.Windows.Forms.PictureBox();
+            this.pboxLeftRing = new System.Windows.Forms.PictureBox();
+            this.pboxLeftMiddle = new System.Windows.Forms.PictureBox();
+            this.pboxLeftIndex = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,46 +49,45 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pboxLeftThumb = new System.Windows.Forms.PictureBox();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightLittle = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightRing = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightMiddle = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightIndex = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightThumb = new System.Windows.Forms.CheckBox();
+            this.chkMissingLeftThumb = new System.Windows.Forms.CheckBox();
+            this.chkMissingLeftIndex = new System.Windows.Forms.CheckBox();
+            this.chkMissingLeftMiddle = new System.Windows.Forms.CheckBox();
+            this.chkMissingLeftRing = new System.Windows.Forms.CheckBox();
+            this.chkMissingLeftLittle = new System.Windows.Forms.CheckBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAcquire = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TouchScreenTimer = new System.Windows.Forms.Timer(this.components);
+            this.lstScannedObjects = new System.Windows.Forms.CheckedListBox();
+            this.popAcquireItemMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightLittle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightRing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightMiddle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightThumb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftLittle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftRing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftMiddle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftThumb)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -104,15 +104,15 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox10, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox9, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox8, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox7, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pboxRightLittle, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pboxRightRing, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pboxRightMiddle, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pboxRightIndex, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pboxRightThumb, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pboxLeftLittle, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pboxLeftRing, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pboxLeftMiddle, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pboxLeftIndex, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
@@ -123,7 +123,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label11, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label12, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label13, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pboxLeftThumb, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -134,106 +134,105 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(910, 270);
             this.tableLayoutPanel1.TabIndex = 1;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // pictureBox10
+            // pboxRightLittle
             // 
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox10.Location = new System.Drawing.Point(731, 158);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(176, 109);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 19;
-            this.pictureBox10.TabStop = false;
+            this.pboxRightLittle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxRightLittle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxRightLittle.Location = new System.Drawing.Point(731, 158);
+            this.pboxRightLittle.Name = "pboxRightLittle";
+            this.pboxRightLittle.Size = new System.Drawing.Size(176, 109);
+            this.pboxRightLittle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRightLittle.TabIndex = 19;
+            this.pboxRightLittle.TabStop = false;
             // 
-            // pictureBox9
+            // pboxRightRing
             // 
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox9.Location = new System.Drawing.Point(549, 158);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(176, 109);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 18;
-            this.pictureBox9.TabStop = false;
+            this.pboxRightRing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxRightRing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxRightRing.Location = new System.Drawing.Point(549, 158);
+            this.pboxRightRing.Name = "pboxRightRing";
+            this.pboxRightRing.Size = new System.Drawing.Size(176, 109);
+            this.pboxRightRing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRightRing.TabIndex = 18;
+            this.pboxRightRing.TabStop = false;
             // 
-            // pictureBox8
+            // pboxRightMiddle
             // 
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox8.Location = new System.Drawing.Point(367, 158);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(176, 109);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 17;
-            this.pictureBox8.TabStop = false;
+            this.pboxRightMiddle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxRightMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxRightMiddle.Location = new System.Drawing.Point(367, 158);
+            this.pboxRightMiddle.Name = "pboxRightMiddle";
+            this.pboxRightMiddle.Size = new System.Drawing.Size(176, 109);
+            this.pboxRightMiddle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRightMiddle.TabIndex = 17;
+            this.pboxRightMiddle.TabStop = false;
             // 
-            // pictureBox7
+            // pboxRightIndex
             // 
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox7.Location = new System.Drawing.Point(185, 158);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(176, 109);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 16;
-            this.pictureBox7.TabStop = false;
+            this.pboxRightIndex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxRightIndex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxRightIndex.Location = new System.Drawing.Point(185, 158);
+            this.pboxRightIndex.Name = "pboxRightIndex";
+            this.pboxRightIndex.Size = new System.Drawing.Size(176, 109);
+            this.pboxRightIndex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRightIndex.TabIndex = 16;
+            this.pboxRightIndex.TabStop = false;
             // 
-            // pictureBox6
+            // pboxRightThumb
             // 
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 158);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(176, 109);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 15;
-            this.pictureBox6.TabStop = false;
+            this.pboxRightThumb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxRightThumb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxRightThumb.Location = new System.Drawing.Point(3, 158);
+            this.pboxRightThumb.Name = "pboxRightThumb";
+            this.pboxRightThumb.Size = new System.Drawing.Size(176, 109);
+            this.pboxRightThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRightThumb.TabIndex = 15;
+            this.pboxRightThumb.TabStop = false;
             // 
-            // pictureBox5
+            // pboxLeftLittle
             // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(731, 24);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(176, 107);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
+            this.pboxLeftLittle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxLeftLittle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxLeftLittle.Location = new System.Drawing.Point(731, 24);
+            this.pboxLeftLittle.Name = "pboxLeftLittle";
+            this.pboxLeftLittle.Size = new System.Drawing.Size(176, 107);
+            this.pboxLeftLittle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLeftLittle.TabIndex = 14;
+            this.pboxLeftLittle.TabStop = false;
             // 
-            // pictureBox4
+            // pboxLeftRing
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(549, 24);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(176, 107);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
+            this.pboxLeftRing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxLeftRing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxLeftRing.Location = new System.Drawing.Point(549, 24);
+            this.pboxLeftRing.Name = "pboxLeftRing";
+            this.pboxLeftRing.Size = new System.Drawing.Size(176, 107);
+            this.pboxLeftRing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLeftRing.TabIndex = 13;
+            this.pboxLeftRing.TabStop = false;
             // 
-            // pictureBox3
+            // pboxLeftMiddle
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(367, 24);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(176, 107);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.pboxLeftMiddle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxLeftMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxLeftMiddle.Location = new System.Drawing.Point(367, 24);
+            this.pboxLeftMiddle.Name = "pboxLeftMiddle";
+            this.pboxLeftMiddle.Size = new System.Drawing.Size(176, 107);
+            this.pboxLeftMiddle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLeftMiddle.TabIndex = 12;
+            this.pboxLeftMiddle.TabStop = false;
             // 
-            // pictureBox2
+            // pboxLeftIndex
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(185, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(176, 107);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
+            this.pboxLeftIndex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxLeftIndex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxLeftIndex.Location = new System.Drawing.Point(185, 24);
+            this.pboxLeftIndex.Name = "pboxLeftIndex";
+            this.pboxLeftIndex.Size = new System.Drawing.Size(176, 107);
+            this.pboxLeftIndex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLeftIndex.TabIndex = 11;
+            this.pboxLeftIndex.TabStop = false;
             // 
             // label8
             // 
@@ -345,42 +344,40 @@
             this.label13.Text = "Right Little";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pboxLeftThumb
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(176, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.pboxLeftThumb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pboxLeftThumb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pboxLeftThumb.Location = new System.Drawing.Point(3, 24);
+            this.pboxLeftThumb.Name = "pboxLeftThumb";
+            this.pboxLeftThumb.Size = new System.Drawing.Size(176, 107);
+            this.pboxLeftThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLeftThumb.TabIndex = 10;
+            this.pboxLeftThumb.TabStop = false;
             // 
-            // button1
+            // btnOk
             // 
-            this.button1.Location = new System.Drawing.Point(376, 456);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOk.Location = new System.Drawing.Point(376, 456);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 3;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(458, 456);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(458, 456);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtSearchName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -389,49 +386,17 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
+            // txtSearchName
             // 
-            this.textBox3.Location = new System.Drawing.Point(93, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(193, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(93, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(93, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Middlename";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Lastname";
+            this.txtSearchName.Location = new System.Drawing.Point(73, 42);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(215, 20);
+            this.txtSearchName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 33);
+            this.label1.Location = new System.Drawing.Point(15, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -455,16 +420,16 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBox10);
-            this.groupBox3.Controls.Add(this.checkBox9);
-            this.groupBox3.Controls.Add(this.checkBox8);
-            this.groupBox3.Controls.Add(this.checkBox7);
-            this.groupBox3.Controls.Add(this.checkBox6);
-            this.groupBox3.Controls.Add(this.checkBox5);
-            this.groupBox3.Controls.Add(this.checkBox4);
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.chkMissingRightLittle);
+            this.groupBox3.Controls.Add(this.chkMissingRightRing);
+            this.groupBox3.Controls.Add(this.chkMissingRightMiddle);
+            this.groupBox3.Controls.Add(this.chkMissingRightIndex);
+            this.groupBox3.Controls.Add(this.chkMissingRightThumb);
+            this.groupBox3.Controls.Add(this.chkMissingLeftThumb);
+            this.groupBox3.Controls.Add(this.chkMissingLeftIndex);
+            this.groupBox3.Controls.Add(this.chkMissingLeftMiddle);
+            this.groupBox3.Controls.Add(this.chkMissingLeftRing);
+            this.groupBox3.Controls.Add(this.chkMissingLeftLittle);
             this.groupBox3.Controls.Add(this.pictureBox11);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(613, 3);
@@ -473,105 +438,105 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
-            // checkBox10
+            // chkMissingRightLittle
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox10.Location = new System.Drawing.Point(267, 33);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 14);
-            this.checkBox10.TabIndex = 10;
-            this.checkBox10.UseVisualStyleBackColor = false;
+            this.chkMissingRightLittle.AutoSize = true;
+            this.chkMissingRightLittle.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightLittle.Location = new System.Drawing.Point(267, 33);
+            this.chkMissingRightLittle.Name = "chkMissingRightLittle";
+            this.chkMissingRightLittle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightLittle.TabIndex = 10;
+            this.chkMissingRightLittle.UseVisualStyleBackColor = false;
             // 
-            // checkBox9
+            // chkMissingRightRing
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox9.Location = new System.Drawing.Point(236, 26);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(15, 14);
-            this.checkBox9.TabIndex = 9;
-            this.checkBox9.UseVisualStyleBackColor = false;
+            this.chkMissingRightRing.AutoSize = true;
+            this.chkMissingRightRing.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightRing.Location = new System.Drawing.Point(236, 26);
+            this.chkMissingRightRing.Name = "chkMissingRightRing";
+            this.chkMissingRightRing.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightRing.TabIndex = 9;
+            this.chkMissingRightRing.UseVisualStyleBackColor = false;
             // 
-            // checkBox8
+            // chkMissingRightMiddle
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox8.Location = new System.Drawing.Point(205, 33);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 14);
-            this.checkBox8.TabIndex = 8;
-            this.checkBox8.UseVisualStyleBackColor = false;
+            this.chkMissingRightMiddle.AutoSize = true;
+            this.chkMissingRightMiddle.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightMiddle.Location = new System.Drawing.Point(205, 33);
+            this.chkMissingRightMiddle.Name = "chkMissingRightMiddle";
+            this.chkMissingRightMiddle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightMiddle.TabIndex = 8;
+            this.chkMissingRightMiddle.UseVisualStyleBackColor = false;
             // 
-            // checkBox7
+            // chkMissingRightIndex
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox7.Location = new System.Drawing.Point(183, 45);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(15, 14);
-            this.checkBox7.TabIndex = 7;
-            this.checkBox7.UseVisualStyleBackColor = false;
+            this.chkMissingRightIndex.AutoSize = true;
+            this.chkMissingRightIndex.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightIndex.Location = new System.Drawing.Point(183, 45);
+            this.chkMissingRightIndex.Name = "chkMissingRightIndex";
+            this.chkMissingRightIndex.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightIndex.TabIndex = 7;
+            this.chkMissingRightIndex.UseVisualStyleBackColor = false;
             // 
-            // checkBox6
+            // chkMissingRightThumb
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox6.Location = new System.Drawing.Point(169, 102);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 14);
-            this.checkBox6.TabIndex = 6;
-            this.checkBox6.UseVisualStyleBackColor = false;
+            this.chkMissingRightThumb.AutoSize = true;
+            this.chkMissingRightThumb.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightThumb.Location = new System.Drawing.Point(169, 102);
+            this.chkMissingRightThumb.Name = "chkMissingRightThumb";
+            this.chkMissingRightThumb.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightThumb.TabIndex = 6;
+            this.chkMissingRightThumb.UseVisualStyleBackColor = false;
             // 
-            // checkBox5
+            // chkMissingLeftThumb
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox5.Location = new System.Drawing.Point(121, 102);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 5;
-            this.checkBox5.UseVisualStyleBackColor = false;
+            this.chkMissingLeftThumb.AutoSize = true;
+            this.chkMissingLeftThumb.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingLeftThumb.Location = new System.Drawing.Point(121, 102);
+            this.chkMissingLeftThumb.Name = "chkMissingLeftThumb";
+            this.chkMissingLeftThumb.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftThumb.TabIndex = 5;
+            this.chkMissingLeftThumb.UseVisualStyleBackColor = false;
             // 
-            // checkBox4
+            // chkMissingLeftIndex
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Location = new System.Drawing.Point(106, 45);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.chkMissingLeftIndex.AutoSize = true;
+            this.chkMissingLeftIndex.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingLeftIndex.Location = new System.Drawing.Point(106, 45);
+            this.chkMissingLeftIndex.Name = "chkMissingLeftIndex";
+            this.chkMissingLeftIndex.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftIndex.TabIndex = 4;
+            this.chkMissingLeftIndex.UseVisualStyleBackColor = false;
             // 
-            // checkBox3
+            // chkMissingLeftMiddle
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Location = new System.Drawing.Point(85, 32);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.UseVisualStyleBackColor = false;
+            this.chkMissingLeftMiddle.AutoSize = true;
+            this.chkMissingLeftMiddle.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingLeftMiddle.Location = new System.Drawing.Point(85, 32);
+            this.chkMissingLeftMiddle.Name = "chkMissingLeftMiddle";
+            this.chkMissingLeftMiddle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftMiddle.TabIndex = 3;
+            this.chkMissingLeftMiddle.UseVisualStyleBackColor = false;
             // 
-            // checkBox2
+            // chkMissingLeftRing
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Location = new System.Drawing.Point(55, 26);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.chkMissingLeftRing.AutoSize = true;
+            this.chkMissingLeftRing.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingLeftRing.Location = new System.Drawing.Point(55, 26);
+            this.chkMissingLeftRing.Name = "chkMissingLeftRing";
+            this.chkMissingLeftRing.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftRing.TabIndex = 2;
+            this.chkMissingLeftRing.UseVisualStyleBackColor = false;
             // 
-            // checkBox1
+            // chkMissingLeftLittle
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(20, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.chkMissingLeftLittle.AutoSize = true;
+            this.chkMissingLeftLittle.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingLeftLittle.Location = new System.Drawing.Point(20, 32);
+            this.chkMissingLeftLittle.Name = "chkMissingLeftLittle";
+            this.chkMissingLeftLittle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftLittle.TabIndex = 1;
+            this.chkMissingLeftLittle.UseVisualStyleBackColor = false;
             // 
             // pictureBox11
             // 
@@ -586,7 +551,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btnAcquire);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -605,14 +570,15 @@
             this.button5.Text = "Configuration";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAcquire
             // 
-            this.button4.Location = new System.Drawing.Point(35, 59);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 48);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Start accquisition sequence";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAcquire.Location = new System.Drawing.Point(35, 59);
+            this.btnAcquire.Name = "btnAcquire";
+            this.btnAcquire.Size = new System.Drawing.Size(114, 48);
+            this.btnAcquire.TabIndex = 2;
+            this.btnAcquire.Text = "Start accquisition sequence";
+            this.btnAcquire.UseVisualStyleBackColor = true;
+            this.btnAcquire.Click += new System.EventHandler(this.btnAcquire_Click);
             // 
             // button3
             // 
@@ -641,30 +607,51 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rolled Fingers";
             // 
+            // TouchScreenTimer
+            // 
+            this.TouchScreenTimer.Tick += new System.EventHandler(this.TouchScreenTimer_Tick);
+            // 
+            // lstScannedObjects
+            // 
+            this.lstScannedObjects.FormattingEnabled = true;
+            this.lstScannedObjects.Location = new System.Drawing.Point(953, 117);
+            this.lstScannedObjects.Name = "lstScannedObjects";
+            this.lstScannedObjects.Size = new System.Drawing.Size(120, 94);
+            this.lstScannedObjects.TabIndex = 2;
+            // 
+            // popAcquireItemMenu
+            // 
+            this.popAcquireItemMenu.Name = "popAcquireItemMenu";
+            this.popAcquireItemMenu.Size = new System.Drawing.Size(153, 26);
+            this.popAcquireItemMenu.Opening += new System.ComponentModel.CancelEventHandler(this.popAcquireItemMenu_Opening);
+            // 
             // UserDataWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 491);
+            this.Controls.Add(this.lstScannedObjects);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UserDataWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserDataWindow_FormClosing);
+            this.Load += new System.EventHandler(this.UserDataWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightLittle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightRing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightMiddle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRightThumb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftLittle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftRing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftMiddle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLeftThumb)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -680,33 +667,29 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAcquire;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkMissingRightLittle;
+        private System.Windows.Forms.CheckBox chkMissingRightRing;
+        private System.Windows.Forms.CheckBox chkMissingRightMiddle;
+        private System.Windows.Forms.CheckBox chkMissingRightIndex;
+        private System.Windows.Forms.CheckBox chkMissingRightThumb;
+        private System.Windows.Forms.CheckBox chkMissingLeftThumb;
+        private System.Windows.Forms.CheckBox chkMissingLeftIndex;
+        private System.Windows.Forms.CheckBox chkMissingLeftMiddle;
+        private System.Windows.Forms.CheckBox chkMissingLeftRing;
+        private System.Windows.Forms.CheckBox chkMissingLeftLittle;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -718,15 +701,18 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxRightLittle;
+        private System.Windows.Forms.PictureBox pboxRightRing;
+        private System.Windows.Forms.PictureBox pboxRightMiddle;
+        private System.Windows.Forms.PictureBox pboxRightIndex;
+        private System.Windows.Forms.PictureBox pboxRightThumb;
+        private System.Windows.Forms.PictureBox pboxLeftLittle;
+        private System.Windows.Forms.PictureBox pboxLeftRing;
+        private System.Windows.Forms.PictureBox pboxLeftMiddle;
+        private System.Windows.Forms.PictureBox pboxLeftIndex;
+        private System.Windows.Forms.PictureBox pboxLeftThumb;
+        private System.Windows.Forms.Timer TouchScreenTimer;
+        private System.Windows.Forms.CheckedListBox lstScannedObjects;
+        private System.Windows.Forms.ContextMenuStrip popAcquireItemMenu;
     }
 }

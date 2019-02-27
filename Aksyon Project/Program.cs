@@ -16,7 +16,7 @@ namespace Aksyon_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserDataWindow());
+            Application.Run(new MainWindow());
         }
     }
 }
