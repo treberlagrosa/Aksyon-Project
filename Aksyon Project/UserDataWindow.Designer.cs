@@ -53,8 +53,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearchName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chkMissingRightLittle = new System.Windows.Forms.CheckBox();
@@ -77,6 +75,7 @@
             this.TouchScreenTimer = new System.Windows.Forms.Timer(this.components);
             this.lstScannedObjects = new System.Windows.Forms.CheckedListBox();
             this.popAcquireItemMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtPesonalityName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRightLittle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRightRing)).BeginInit();
@@ -377,30 +376,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtSearchName);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtPesonalityName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(299, 137);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            // 
-            // txtSearchName
-            // 
-            this.txtSearchName.Location = new System.Drawing.Point(73, 42);
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(215, 20);
-            this.txtSearchName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Firstname";
             // 
             // tableLayoutPanel2
             // 
@@ -622,8 +604,18 @@
             // popAcquireItemMenu
             // 
             this.popAcquireItemMenu.Name = "popAcquireItemMenu";
-            this.popAcquireItemMenu.Size = new System.Drawing.Size(153, 26);
+            this.popAcquireItemMenu.Size = new System.Drawing.Size(61, 4);
             this.popAcquireItemMenu.Opening += new System.ComponentModel.CancelEventHandler(this.popAcquireItemMenu_Opening);
+            // 
+            // txtPesonalityName
+            // 
+            this.txtPesonalityName.AutoSize = true;
+            this.txtPesonalityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesonalityName.Location = new System.Drawing.Point(6, 21);
+            this.txtPesonalityName.Name = "txtPesonalityName";
+            this.txtPesonalityName.Size = new System.Drawing.Size(132, 20);
+            this.txtPesonalityName.TabIndex = 0;
+            this.txtPesonalityName.Text = "Personality Name";
             // 
             // UserDataWindow
             // 
@@ -674,8 +666,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnAcquire;
         private System.Windows.Forms.Button button3;
@@ -714,5 +704,6 @@
         private System.Windows.Forms.Timer TouchScreenTimer;
         private System.Windows.Forms.CheckedListBox lstScannedObjects;
         private System.Windows.Forms.ContextMenuStrip popAcquireItemMenu;
+        private System.Windows.Forms.Label txtPesonalityName;
     }
 }

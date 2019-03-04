@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Globalization;
+using System.Net;
 using GBMSGUI_NET;
 using GBMSAPI_NET.GBMSAPI_NET_Defines.GBMSAPI_NET_DeviceCharacteristicsDefines;
 using GBMSAPI_NET.GBMSAPI_NET_LibraryFunctions;
@@ -21,6 +22,7 @@ using WSQPACK_NET_WRAPPER;
 using System.Text.RegularExpressions;
 using An2k_2011_NetWrapper;
 using An2k_Engine_Net_Wrapper;
+using RestSharp;
 #if GBDCGUI_DEMO
 using GBDCGUI_Net;
 #endif
@@ -117,7 +119,9 @@ namespace Aksyon_Project
             if (!ViewMode)
             {
                 // set form's caption
-                Text = "New User";
+                Text = "Acquire Person Fingerprint";
+
+                txtPesonalityName.Text = MainWindow.selectedPersonality.name;
 
                 UserData = new MainWindow.UserData();
 
@@ -194,12 +198,12 @@ namespace Aksyon_Project
             {
                 // set form's caption
                 Text = "View User";
-                txtSearchName.ReadOnly = true;
+                //txtPesonalityName.ReadOnly = true;
                 btnAcquire.Visible = false;
 
                 // read user data
                 UserData = MainWindow.UserData.Deserialize(ImagesPath + Path.DirectorySeparatorChar + "UserData.xml");
-                txtSearchName.Text = UserData.Surname;
+                txtPesonalityName.Text = UserData.Name;
 
                 // read other data
                 ReadItemsData();
@@ -270,10 +274,7 @@ namespace Aksyon_Project
             // disable TouchScreen
             TouchScreenTimer.Enabled = false;
 
-            PersonID = txtSearchName.Text;
-
-            // set language
-            //SetLanguage();
+            PersonID = txtPesonalityName.Text;
 
             // set AfterStartCallback (if needed)
             //gcUserDataFormHandle = GCHandle.Alloc(this); // pass pointer to the form instance to callback
@@ -1117,6 +1118,7 @@ namespace Aksyon_Project
         {
             // delete all files
             EmptyFolder(ImagesPath);
+
             // clear all pictureboxes
             foreach (ScanItem Item in lstScannedObjects.Items)
             {
@@ -1172,15 +1174,6 @@ namespace Aksyon_Project
             Item.ItemData.Quality = 0;
             Item.ItemData.QualityAlgorithm = 0;
             //Item.ItemData.UnavailabilityReason = 0;
-
-            //if ((Item.ScanObjID == GBMSAPI_NET_ScannableObjects.GBMSAPI_NET_SO_SLAP_4_LEFT) ||
-            //    (Item.ScanObjID == GBMSAPI_NET_ScannableObjects.GBMSAPI_NET_SO_UPPER_HALF_PALM_LEFT))
-            //    ResetSlapSegmentsData(LeftSlapSegmentsData, 4);
-            //else if ((Item.ScanObjID == GBMSAPI_NET_ScannableObjects.GBMSAPI_NET_SO_SLAP_4_RIGHT) ||
-            //    (Item.ScanObjID == GBMSAPI_NET_ScannableObjects.GBMSAPI_NET_SO_UPPER_HALF_PALM_RIGHT))
-            //    ResetSlapSegmentsData(RightSlapSegmentsData, 4);
-            //else if (Item.ScanObjID == GBMSAPI_NET_ScannableObjects.GBMSAPI_NET_SO_SLAP_2_THUMBS)
-            //    ResetSlapSegmentsData(TwoThumbsSegmentsData, 2);
         }
 
         private void UserDataWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -1294,16 +1287,17 @@ namespace Aksyon_Project
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            postFingers();
+            return;
             if (!ViewMode)
             {
-                if (txtSearchName.Text == "")
+                if (txtPesonalityName.Text == "")
                 {
                     MessageBox.Show("Specify at least Surname!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
-                UserData.Surname = txtSearchName.Text;
-                UserData.Name = txtSearchName.Text;
+                UserData.Name = txtPesonalityName.Text;
 
                 // save user data
                 MainWindow.UserData.Serialize(ImagesPath + Path.DirectorySeparatorChar + "UserData.xml", UserData);
@@ -1314,7 +1308,7 @@ namespace Aksyon_Project
                 //SaveJointsData();
 
                 // rename folder with User name
-                String NewFolderName = txtSearchName.Text;
+                String NewFolderName = txtPesonalityName.Text;
                 //if (txtName.Text.Length != 0)
                 //    NewFolderName = NewFolderName + " " + txtName.Text;
 
@@ -1420,10 +1414,9 @@ namespace Aksyon_Project
             int Count = 0;
             FileStream fs;
             BinaryWriter w;
-
             try
             {
-                fs = new FileStream(ImagesPath + Path.DirectorySeparatorChar + "ItemsData.dat", FileMode.Create);
+                fs = new FileStream(MainWindow.selectedPersonality.id + Path.DirectorySeparatorChar + "ItemsData.dat", FileMode.Create);
                 w = new BinaryWriter(fs);
 
                 // count items to be written
@@ -1929,6 +1922,147 @@ namespace Aksyon_Project
                     MyGUI.SetSegmentUnavailabilityReason(CurrentScanItem.ScanObjID, 1, Reason);
                 }
             }
+        }
+
+        private void getFingers()
+        {
+            string url = "http://192.168.100.178:8000/api/personalities/";
+            //request left thumb
+            IRestResponse[] gl_response = new IRestResponse[5];
+            IRestResponse[] gr_response = new IRestResponse[5];
+
+            string[] gl = { "gl_thumb", "gl_point", "gl_mid", "gl_ring", "gl_pink" };
+            string[] gr = { "gr_thumb", "gr_point", "gr_mid", "gr_ring", "gr_pink" };
+
+            //request left fingers
+            for (int i = 0; i < 5; i++)
+            {
+                var client = new RestClient(url + gl[i]);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
+                request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" + MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                gl_response[i] = client.Execute(request);
+            }
+
+            PictureBox[] leftFingers = { pboxLeftThumb, pboxLeftIndex, pboxLeftMiddle, pboxLeftRing, pboxLeftLittle };
+            //populate finger print
+            int x = 0;
+            foreach (PictureBox pic in leftFingers)
+            {
+                if (gl_response[x] != null) pic.Image = Base64ToImage(gl_response[x].Content);
+                x++;
+            }
+            //request right fingers
+            for (int i = 0; i < 5; i++)
+            {
+                var client = new RestClient(url + gr[i]);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
+                request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" + MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                gr_response[i] = client.Execute(request);
+            }
+            PictureBox[] rightFingers = { pboxRightThumb, pboxRightIndex, pboxRightMiddle, pboxRightRing, pboxRightLittle };
+
+            int y = 0;
+            foreach (PictureBox pic in rightFingers)
+            {
+                if (gr_response[y] != null) pic.Image = Base64ToImage(gl_response[x].Content);
+            }
+        }
+
+        private void postFingers()
+        {
+            string url = "http://192.168.100.178:8000/api/personalities/";
+            //request left thumb
+            IRestResponse[] sl_response = new IRestResponse[5];
+            IRestResponse[] sr_response = new IRestResponse[5];
+
+            string[] sl = { "sl_thumb", "sl_point", "sl_mid", "sl_ring", "sl_pink" };
+            string[] sr = { "sr_thumb", "sr_point", "sr_mid", "sr_ring", "sr_pink" };
+
+            //request left fingers
+            PictureBox[] leftFingers = { pboxLeftThumb, pboxLeftIndex, pboxLeftMiddle, pboxLeftRing, pboxLeftLittle };
+            for (int i = 0; i < 5; i++)
+            {
+                if (leftFingers[i].Image != null)
+                {
+                    try
+                    {
+                    var client = new RestClient(url + sl[i]);
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                    request.AddHeader("Accept", "application/json");
+                    request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
+                    request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+                    "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"fingerprint\"\r\n\r\n"
+                    + ImageToBase64(leftFingers[i].Image, ImageFormat.Bmp) +
+                    "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" +
+                    MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                    sl_response[i] = client.Execute(request);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            //request right fingers
+            PictureBox[] rightFingers = { pboxRightThumb, pboxRightIndex, pboxRightMiddle, pboxRightRing, pboxRightLittle };
+            for (int i = 0; i < 5; i++)
+            {
+                if (rightFingers[i].Image != null)
+                {
+                    try
+                    {
+                        var client = new RestClient(url + sr[i]);
+                        var request = new RestRequest(Method.POST);
+                        request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                        request.AddHeader("Accept", "application/json");
+                        request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
+                        request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+                             "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"fingerprint\"\r\n\r\n"
+                             + ImageToBase64(rightFingers[i].Image, ImageFormat.Bmp) +
+                             "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" +
+                             MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                        sr_response[i] = client.Execute(request);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+
+
+        string ImageToBase64(Image image, ImageFormat format)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Convert Image to byte[]
+                image.Save(ms, format);
+                byte[] imageBytes = ms.ToArray();
+                // Convert byte[] to Base64 String
+                string base64String = Convert.ToBase64String(imageBytes);
+                return base64String;
+            }
+        }
+
+        Image Base64ToImage(string base64String)
+        {
+            // Convert Base64 String to byte[]
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            MemoryStream ms = new MemoryStream(imageBytes, 0,imageBytes.Length);
+            // Convert byte[] to Image
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            Image image = Image.FromStream(ms, true);
+            return image;
         }
     }
 }

@@ -27,3 +27,14 @@ C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.U
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.csproj.GenerateResource.Cache
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\GBNFIQ2_NET_WRAPPER.dll
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon Project.csprojResolveAssemblyReference.cache
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.LoginWindow.resources
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\RestSharp.dll
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\RestSharp.xml
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\EntityFramework.dll
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\EntityFramework.xml
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.APIConfiguration.resources
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.dll
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.xml

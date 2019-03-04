@@ -19,17 +19,11 @@ namespace Aksyon_Project
                 get { return mVersion; }
                 set { mVersion = value; }
             }
-            String mSurname;
-            public String Surname
-            {
-                get { return mSurname; }
-                set { mSurname = value; }
-            }
-            String mName;
+            String mPersonalityName;
             public String Name
             {
-                get { return mName; }
-                set { mName = value; }
+                get { return mPersonalityName; }
+                set { mPersonalityName = value; }
             }
             int mAcquisitionDpi;
             public int AcquisitionDpi

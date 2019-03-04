@@ -12,6 +12,8 @@ using GBMSAPI_NET.GBMSAPI_NET_Defines.GBMSAPI_NET_DeviceCharacteristicsDefines;
 using GBMSAPI_NET.GBMSAPI_NET_LibraryFunctions;
 using GBMSAPI_NET.GBMSAPI_NET_Defines.GBMSAPI_NET_ErrorCodesDefines;
 using GBMSAPI_NET.GBMSAPI_NET_Defines.GBMSAPI_NET_VisualInterfaceLCDDefines;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace Aksyon_Project
 {
@@ -33,6 +35,12 @@ namespace Aksyon_Project
             {
                 return UserName;
             }
+        }
+
+        public static class selectedPersonality
+        {
+            public static string id;
+            public static string name;
         }
 
         // list of available Green Bit devices
@@ -78,7 +86,8 @@ namespace Aksyon_Project
             // StripeAcquisition not yet certified
             DemoConfig.AcquisitionOptions &= ~GBMSGUI.AcquisitionOption.EnableRollStripeAcquisition;
 
-            LoadUsersList();
+            //LoadUsersList();
+            loadPersonalities();
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -375,7 +384,7 @@ namespace Aksyon_Project
                     UserData Data = UserData.Deserialize(UserFile);
                     UserListItem Item = new UserListItem();
                     Item.Path = DirName;
-                    Item.UserName = Data.Surname + " " + Data.Name;
+                    Item.UserName = Data.Name;
                     // add user name to the list
                     lstUsers.Items.Add(Item);
                 }
@@ -447,6 +456,204 @@ namespace Aksyon_Project
             // 2.2.0.0
             //if (success)
             //    btnNew.Enabled = true;
+        }
+
+        void loadPersonalities()
+        {
+            var client = new RestClient("http://192.168.100.178:8000/api/personalities/");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("Authorization", LoginWindow.apiCon.token_type+ " " + LoginWindow.apiCon.access_token);
+            request.AddHeader("Accept", "application/json");
+            IRestResponse response = client.Execute(request);
+            var jobject = JsonConvert.DeserializeObject<RootObject>(response.Content);
+            string name;
+            for(int i = 0; i < jobject.personalities.Count; i++)
+            {
+                name = jobject.personalities[i].first_name + " " + jobject.personalities[i].last_name;
+
+                dgvPersonalities.Rows.Add(new object[] {
+                    jobject.personalities[i].person_id,
+                    name,
+                    jobject.personalities[i].regional_office.description,
+                    jobject.personalities[i].provincial_office.description,
+                    jobject.personalities[i].police_station.description,
+                    jobject.personalities[i].category_hvtslt.description,
+                    jobject.personalities[i].class_suspect.description,
+                    jobject.personalities[i].drugperson_status.description,
+                    jobject.personalities[i].date_entry_watchlist,
+                    jobject.personalities[i].listed
+                });
+            }
+        }
+
+        public class Region
+        {
+            public int id { get; set; }
+            public string abbrev { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Province
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+            public int prov_region_id { get; set; }
+        }
+
+        public class Municipality
+        {
+            public int id { get; set; }
+            public int region_id { get; set; }
+            public int province_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Barangay
+        {
+            public int id { get; set; }
+            public int region_id { get; set; }
+            public int province_id { get; set; }
+            public int city_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class CategoryHvtslt
+        {
+            public int id { get; set; }
+            public int hvt_slt_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class ClassSuspect
+        {
+            public int id { get; set; }
+            public int class_suspect_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class DrugpersonStatus
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+            public object created_at { get; set; }
+            public object updated_at { get; set; }
+        }
+
+        public class RegionalOffice
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+            public int seq { get; set; }
+            public int cat { get; set; }
+            public int pop { get; set; }
+        }
+
+        public class ProvincialOffice
+        {
+            public int id { get; set; }
+            public int pros_id { get; set; }
+            public int ppo_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class PoliceStation
+        {
+            public int id { get; set; }
+            public int pro_id { get; set; }
+            public int ppo_id { get; set; }
+            public string description { get; set; }
+            public string uccn { get; set; }
+            public string municipal_code { get; set; }
+        }
+
+        public class Personality
+        {
+            public int id { get; set; }
+            public int person_id { get; set; }
+            public string last_name { get; set; }
+            public string first_name { get; set; }
+            public string middle_name { get; set; }
+            public object qualifier_id { get; set; }
+            public string alias { get; set; }
+            public string birthday { get; set; }
+            public object place_of_birth { get; set; }
+            public Region region { get; set; }
+            public Province province { get; set; }
+            public Municipality municipality { get; set; }
+            public Barangay barangay { get; set; }
+            public object street_details { get; set; }
+            public string gender { get; set; }
+            public string occupation { get; set; }
+            public object occupation_details { get; set; }
+            public string education { get; set; }
+            public string related_ego { get; set; }
+            public string related_ofw { get; set; }
+            public object group_affiliation { get; set; }
+            public object group_affiliation_pos { get; set; }
+            public object citizenship { get; set; }
+            public object ethnic_group { get; set; }
+            public object dialect { get; set; }
+            public object religion { get; set; }
+            public object tech_skills { get; set; }
+            public object social_media { get; set; }
+            public object contact_number { get; set; }
+            public string date_surrendered_arrested { get; set; }
+            public string oic { get; set; }
+            public object validated_by { get; set; }
+            public object remarks { get; set; }
+            public CategoryHvtslt category_hvtslt { get; set; }
+            public ClassSuspect class_suspect { get; set; }
+            public DrugpersonStatus drugperson_status { get; set; }
+            public RegionalOffice regional_office { get; set; }
+            public ProvincialOffice provincial_office { get; set; }
+            public PoliceStation police_station { get; set; }
+            public string listed { get; set; }
+            public string validated { get; set; }
+            public string recap { get; set; }
+            public int encoded { get; set; }
+            public string data_owner { get; set; }
+            public string date_entry_watchlist { get; set; }
+            public string subjected_tokhang { get; set; }
+            public string image_path { get; set; }
+            public int status { get; set; }
+            public int confidentiality { get; set; }
+            public int hide_person { get; set; }
+            public string photo_file { get; set; }
+            public string created_at { get; set; }
+            public string updated_at { get; set; }
+            public object right_thumb { get; set; }
+            public object right_point { get; set; }
+            public object right_mid { get; set; }
+            public object right_ring { get; set; }
+            public object right_pink { get; set; }
+            public object right_roll { get; set; }
+            public object left_thumb { get; set; }
+            public object left_point { get; set; }
+            public object left_mid { get; set; }
+            public object left_ring { get; set; }
+            public object left_pink { get; set; }
+            public object left_roll { get; set; }
+        }
+
+        public class RootObject
+        {
+            public List<Personality> personalities { get; set; }
+        }
+
+        void searchPersonalities()
+        {
+
+        }
+
+        private void dgvPersonalities_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedPersonality.id = dgvPersonalities.Rows[e.RowIndex].Cells["colPID"].Value.ToString();
+            selectedPersonality.name = dgvPersonalities.Rows[e.RowIndex].Cells["colName"].Value.ToString();
+            UserDataWindow UserForm = new UserDataWindow(this);
+            UserForm.ViewMode = false;
+            this.Hide();
+            UserForm.Show();
         }
     }
 }
