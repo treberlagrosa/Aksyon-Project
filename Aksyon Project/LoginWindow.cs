@@ -20,6 +20,7 @@ namespace Aksyon_Project
         public string grant_type;
         public string url;
 
+
         // for accessing api
         public static class apiCon
         {
@@ -42,17 +43,26 @@ namespace Aksyon_Project
 
         private void login()
         {
-            var client = new RestClient(url);
+            var client = new RestClient(Properties.Settings.Default.ip + "/oauth/token");
             var request = new RestRequest(Method.POST);
-            request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"client_id\"\r\n\r\n" + client_id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\n" + client_secret + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"grant_type\"\r\n\r\n" + grant_type + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\n" + txtUsername.Text.ToString() + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n" + txtPassword.Text.ToString() + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+            request.AddParameter("client_id", Properties.Settings.Default.client_id);
+            request.AddParameter("client_secret", Properties.Settings.Default.client_secret);
+            request.AddParameter("grant_type", Properties.Settings.Default.grant_type);
+            request.AddParameter("username", txtUsername.Text.ToString());
+            request.AddParameter("password", txtPassword.Text.ToString());
             IRestResponse response = client.Execute(request);
             var jobject = JsonConvert.DeserializeObject<RootObject>(response.Content);
             if (response.IsSuccessful)
             {
                 apiCon.access_token = jobject.access_token;
+                Console.WriteLine("Access token "+apiCon.access_token);
                 apiCon.token_type = jobject.token_type;
+                Console.WriteLine("Token type "+apiCon.token_type);
                 apiCon.expires_in = jobject.expires_in;
+                Console.WriteLine("Expires in "+apiCon.expires_in);
                 apiCon.refresh_token = jobject.refresh_token;
+                Console.WriteLine("Refresh token "+apiCon.refresh_token);
+                
                 this.Hide();
                 MainWindow mainWin = new MainWindow();
                 mainWin.Show();
@@ -66,45 +76,19 @@ namespace Aksyon_Project
 
         private void LoginWindow_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         void checkConfig()
         {
-            using (AksyonProjectEntities api = new AksyonProjectEntities())
+            if (string.IsNullOrEmpty(Properties.Settings.Default.ip) && string.IsNullOrEmpty(Properties.Settings.Default.client_id) && string.IsNullOrEmpty(Properties.Settings.Default.client_secret) && string.IsNullOrEmpty(Properties.Settings.Default.grant_type))
             {
-                try
-                {
-                    var data = (from u in api.APIConfigs
-                                select new
-                                {
-                                    id = u.id,
-                                    Client_ID = u.client_id,
-                                    Client_Secret = u.client_secret,
-                                    Grant_Type = u.grant_type,
-                                    URL = u.url
-                                }).FirstOrDefault();
-                    if (data == null)
-                    {
-                        MessageBox.Show("Configure API first.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        APIConfiguration config = new APIConfiguration();
-                        config.Show();
-                    }
-                    else
-                    {
-                        client_id = data.Client_ID.ToString();
-                        client_secret = data.Client_Secret;
-                        grant_type = data.Grant_Type;
-                        url = data.URL;
-                        login();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
+                MessageBox.Show("Setup api configuration first.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                APIConfiguration apiCon = new APIConfiguration();
+                apiCon.ShowDialog();
+                return;
             }
+            login();
         }
 
         public class RootObject
@@ -119,6 +103,19 @@ namespace Aksyon_Project
         {
             APIConfiguration apiconfig = new APIConfiguration();
             apiconfig.Show();
+        }
+
+        
+        
+        void request(string api, int index)
+        {
+            string ip = "http://192.168.100.217:8000/" + api;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Accept", "applic`ation/json");
+            request.AddHeader("Authorization", apiCon.token_type +" "+ apiCon.access_token);
+            IRestResponse response = client.Execute(request);
+            
         }
 
     }

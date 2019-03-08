@@ -460,19 +460,25 @@ namespace Aksyon_Project
 
         void loadPersonalities()
         {
-            var client = new RestClient("http://192.168.100.178:8000/api/personalities/");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("cache-control", "no-cache");
-            request.AddHeader("Authorization", LoginWindow.apiCon.token_type+ " " + LoginWindow.apiCon.access_token);
-            request.AddHeader("Accept", "application/json");
-            IRestResponse response = client.Execute(request);
-            var jobject = JsonConvert.DeserializeObject<RootObject>(response.Content);
-            string name;
-            for(int i = 0; i < jobject.personalities.Count; i++)
+            try
             {
-                name = jobject.personalities[i].first_name + " " + jobject.personalities[i].last_name;
+                var client = new RestClient("http://192.168.100.217:8000/api/personalities/");
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("cache-control", "no-cache");
+                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                request.AddHeader("Accept", "application/json");
+                IRestResponse response = client.Execute(request);
+                if (response.IsSuccessful)
+                {
+                    var jobject = JsonConvert.DeserializeObject<RootObject>(response.Content);
+                    string name;
+                    if (jobject.personalities.Count != 0)
+                    {
+                        for (int i = 0; i < jobject.personalities.Count; i++)
+                        {
+                            name = jobject.personalities[i].first_name + " " + jobject.personalities[i].last_name;
 
-                dgvPersonalities.Rows.Add(new object[] {
+                            dgvPersonalities.Rows.Add(new object[] {
                     jobject.personalities[i].person_id,
                     name,
                     jobject.personalities[i].regional_office.description,
@@ -484,6 +490,13 @@ namespace Aksyon_Project
                     jobject.personalities[i].date_entry_watchlist,
                     jobject.personalities[i].listed
                 });
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error" + ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -651,6 +664,7 @@ namespace Aksyon_Project
             selectedPersonality.id = dgvPersonalities.Rows[e.RowIndex].Cells["colPID"].Value.ToString();
             selectedPersonality.name = dgvPersonalities.Rows[e.RowIndex].Cells["colName"].Value.ToString();
             UserDataWindow UserForm = new UserDataWindow(this);
+            Console.WriteLine("Selected Personality id " + selectedPersonality.id);
             UserForm.ViewMode = false;
             this.Hide();
             UserForm.Show();

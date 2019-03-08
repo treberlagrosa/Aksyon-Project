@@ -23,6 +23,7 @@ using System.Text.RegularExpressions;
 using An2k_2011_NetWrapper;
 using An2k_Engine_Net_Wrapper;
 using RestSharp;
+using Newtonsoft.Json;
 #if GBDCGUI_DEMO
 using GBDCGUI_Net;
 #endif
@@ -115,6 +116,11 @@ namespace Aksyon_Project
 
             // load scanned objects
             LoadScanObjectsList();
+
+            txtPesonalityName.Text = MainWindow.selectedPersonality.name;
+
+            getFingers();
+            return;
 
             if (!ViewMode)
             {
@@ -1178,6 +1184,11 @@ namespace Aksyon_Project
 
         private void UserDataWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            MainWindow mainWin = new MainWindow();
+            mainWin.Show();
+            this.Hide();
+            return;
+
             if (DialogResult == DialogResult.Cancel)
             {
                 if (!ViewMode)
@@ -1348,7 +1359,9 @@ namespace Aksyon_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            MainWindow mainWin = new MainWindow();
+            mainWin.Show();
+            this.Hide();
         }
 
         private void LoadSavedImages()
@@ -1926,7 +1939,6 @@ namespace Aksyon_Project
 
         private void getFingers()
         {
-            string url = "http://192.168.100.178:8000/api/personalities/";
             //request left thumb
             IRestResponse[] gl_response = new IRestResponse[5];
             IRestResponse[] gr_response = new IRestResponse[5];
@@ -1934,49 +1946,70 @@ namespace Aksyon_Project
             string[] gl = { "gl_thumb", "gl_point", "gl_mid", "gl_ring", "gl_pink" };
             string[] gr = { "gr_thumb", "gr_point", "gr_mid", "gr_ring", "gr_pink" };
 
-            //request left fingers
-            for (int i = 0; i < 5; i++)
-            {
-                var client = new RestClient(url + gl[i]);
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-                request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" + MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
-                gl_response[i] = client.Execute(request);
-            }
+            string[] JLeftFingers = new string[5];
+            string[] JRightFingers = new string[5];
 
+            //request get left fingers
             PictureBox[] leftFingers = { pboxLeftThumb, pboxLeftIndex, pboxLeftMiddle, pboxLeftRing, pboxLeftLittle };
-            //populate finger print
-            int x = 0;
-            foreach (PictureBox pic in leftFingers)
-            {
-                if (gl_response[x] != null) pic.Image = Base64ToImage(gl_response[x].Content);
-                x++;
-            }
-            //request right fingers
             for (int i = 0; i < 5; i++)
             {
-                var client = new RestClient(url + gr[i]);
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-                request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" + MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
-                gr_response[i] = client.Execute(request);
-            }
-            PictureBox[] rightFingers = { pboxRightThumb, pboxRightIndex, pboxRightMiddle, pboxRightRing, pboxRightLittle };
+                try
+                {
+                    var client = new RestClient(Properties.Settings.Default.ip + "/api/personalities/" + gl[i]);
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                    request.AddHeader("Accept", "application/json");
+                    request.AddParameter("person_id", MainWindow.selectedPersonality.id);
+                    gl_response[i] = client.Execute(request);
 
-            int y = 0;
-            foreach (PictureBox pic in rightFingers)
+                    if ((int)gl_response[i].StatusCode == 200)
+                    {
+                        leftFingers[i].Image = byteArrayToImage(gl_response[i].RawBytes);
+                        Console.WriteLine(gl[i] + " fp pound");
+                    }
+                    if((int)gl_response[i].StatusCode == 404)
+                    {
+                        Console.WriteLine(gl[i] + " no fp found");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            //request get right fingers
+            PictureBox[] rightFingers = { pboxRightThumb, pboxRightIndex, pboxRightMiddle, pboxRightRing, pboxRightLittle };
+            for (int i = 0; i < 5; i++)
             {
-                if (gr_response[y] != null) pic.Image = Base64ToImage(gl_response[x].Content);
+                try
+                {
+                    var client = new RestClient(Properties.Settings.Default.ip + "/api/personalities/" + gr[i]);
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                    request.AddHeader("Accept", "application/json");
+                    request.AddParameter("person_id", MainWindow.selectedPersonality.id);
+                    gr_response[i] = client.Execute(request);
+
+                    if ((int)gr_response[i].StatusCode == 200)
+                    {
+                        rightFingers[i].Image = byteArrayToImage(gr_response[i].RawBytes);
+                        Console.WriteLine(gr[i] + " fp found");
+                    }
+                    if ((int)gr_response[i].StatusCode == 404)
+                    {
+                        Console.WriteLine(gr[i] + " no fp found");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void postFingers()
         {
-            string url = "http://192.168.100.178:8000/api/personalities/";
+            string url = "http://192.168.100.217:8000/api/personalities/";
             //request left thumb
             IRestResponse[] sl_response = new IRestResponse[5];
             IRestResponse[] sr_response = new IRestResponse[5];
@@ -1984,7 +2017,7 @@ namespace Aksyon_Project
             string[] sl = { "sl_thumb", "sl_point", "sl_mid", "sl_ring", "sl_pink" };
             string[] sr = { "sr_thumb", "sr_point", "sr_mid", "sr_ring", "sr_pink" };
 
-            //request left fingers
+            //request set left fingers
             PictureBox[] leftFingers = { pboxLeftThumb, pboxLeftIndex, pboxLeftMiddle, pboxLeftRing, pboxLeftLittle };
             for (int i = 0; i < 5; i++)
             {
@@ -1992,26 +2025,26 @@ namespace Aksyon_Project
                 {
                     try
                     {
-                    var client = new RestClient(url + sl[i]);
+                    var client = new RestClient(Properties.Settings.Default.ip + "/api/personalities/" + sl[i]);
                     var request = new RestRequest(Method.POST);
+                    Bitmap bmp = new Bitmap(leftFingers[i].Image);
+                    string base64 = ImageToBase64(bmp, ImageFormat.Bmp);
                     request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
                     request.AddHeader("Accept", "application/json");
-                    request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-                    request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
-                    "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"fingerprint\"\r\n\r\n"
-                    + ImageToBase64(leftFingers[i].Image, ImageFormat.Bmp) +
-                    "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" +
-                    MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                    request.AddParameter("fingerprint", base64);
+                    request.AddParameter("person_id", MainWindow.selectedPersonality.id);
                     sl_response[i] = client.Execute(request);
+                    Console.WriteLine(sl[i] + " success");
                     }
                     catch(Exception ex)
                     {
                         MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
             }
 
-            //request right fingers
+            //request set right fingers
             PictureBox[] rightFingers = { pboxRightThumb, pboxRightIndex, pboxRightMiddle, pboxRightRing, pboxRightLittle };
             for (int i = 0; i < 5; i++)
             {
@@ -2019,50 +2052,53 @@ namespace Aksyon_Project
                 {
                     try
                     {
-                        var client = new RestClient(url + sr[i]);
+                        var client = new RestClient(Properties.Settings.Default.ip + "/api/personalities/" + sr[i]);
                         var request = new RestRequest(Method.POST);
+                        Bitmap bmp = new Bitmap(rightFingers[i].Image);
+                        string base64 = ImageToBase64(bmp, ImageFormat.Bmp);
                         request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
                         request.AddHeader("Accept", "application/json");
-                        request.AddHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-                        request.AddParameter("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
-                             "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"fingerprint\"\r\n\r\n"
-                             + ImageToBase64(rightFingers[i].Image, ImageFormat.Bmp) +
-                             "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"person_id\"\r\n\r\n" +
-                             MainWindow.selectedPersonality.id + "\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--", ParameterType.RequestBody);
+                        request.AddParameter("fingerprint", base64);
+                        request.AddParameter("person_id", MainWindow.selectedPersonality.id);
                         sr_response[i] = client.Execute(request);
+                        Console.WriteLine(sr[i] + " success");
                     }
                     catch(Exception ex)
                     {
                         MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
             }
+            MessageBox.Show("Success", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
 
         string ImageToBase64(Image image, ImageFormat format)
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                // Convert Image to byte[]
-                image.Save(ms, format);
-                byte[] imageBytes = ms.ToArray();
-                // Convert byte[] to Base64 String
-                string base64String = Convert.ToBase64String(imageBytes);
-                return base64String;
-            }
+            var imageStream = new MemoryStream();
+            image.Save(imageStream, format);
+            imageStream.Position = 0;
+            var imageBytes = imageStream.ToArray();
+            var ImageBase64 = Convert.ToBase64String(imageBytes);
+            return ImageBase64;
         }
 
         Image Base64ToImage(string base64String)
         {
             // Convert Base64 String to byte[]
             byte[] imageBytes = Convert.FromBase64String(base64String);
-            MemoryStream ms = new MemoryStream(imageBytes, 0,imageBytes.Length);
-            // Convert byte[] to Image
-            ms.Write(imageBytes, 0, imageBytes.Length);
-            Image image = Image.FromStream(ms, true);
+            var ms = new MemoryStream(imageBytes);
+            Image image = Image.FromStream(ms);
             return image;
         }
+
+        Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+
+        }
+
     }
 }

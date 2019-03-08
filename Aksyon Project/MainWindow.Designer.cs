@@ -48,15 +48,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMPSPS = new System.Windows.Forms.ComboBox();
+            this.cmbPPOCPODistrict = new System.Windows.Forms.ComboBox();
+            this.cmbPRORegion = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvPersonalities = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
             this.colPID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +66,7 @@
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateEntry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colListedByDI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,9 +163,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cmbMPSPS);
+            this.panel1.Controls.Add(this.cmbPPOCPODistrict);
+            this.panel1.Controls.Add(this.cmbPRORegion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 51);
             this.panel1.Name = "panel1";
@@ -284,32 +284,32 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "PRO/Region";
             // 
-            // comboBox3
+            // cmbMPSPS
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(600, 34);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(288, 33);
-            this.comboBox3.TabIndex = 2;
+            this.cmbMPSPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMPSPS.FormattingEnabled = true;
+            this.cmbMPSPS.Location = new System.Drawing.Point(600, 34);
+            this.cmbMPSPS.Name = "cmbMPSPS";
+            this.cmbMPSPS.Size = new System.Drawing.Size(288, 33);
+            this.cmbMPSPS.TabIndex = 2;
             // 
-            // comboBox2
+            // cmbPPOCPODistrict
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(306, 34);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(288, 33);
-            this.comboBox2.TabIndex = 1;
+            this.cmbPPOCPODistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPPOCPODistrict.FormattingEnabled = true;
+            this.cmbPPOCPODistrict.Location = new System.Drawing.Point(306, 34);
+            this.cmbPPOCPODistrict.Name = "cmbPPOCPODistrict";
+            this.cmbPPOCPODistrict.Size = new System.Drawing.Size(288, 33);
+            this.cmbPPOCPODistrict.TabIndex = 1;
             // 
-            // comboBox1
+            // cmbPRORegion
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(288, 33);
-            this.comboBox1.TabIndex = 0;
+            this.cmbPRORegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPRORegion.FormattingEnabled = true;
+            this.cmbPRORegion.Location = new System.Drawing.Point(12, 34);
+            this.cmbPRORegion.Name = "cmbPRORegion";
+            this.cmbPRORegion.Size = new System.Drawing.Size(288, 33);
+            this.cmbPRORegion.TabIndex = 0;
             // 
             // label2
             // 
@@ -401,20 +401,6 @@
             this.dgvPersonalities.TabIndex = 0;
             this.dgvPersonalities.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonalities_CellContentDoubleClick);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(2, 2);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label9.Size = new System.Drawing.Size(251, 35);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Filtered Data: All Data Entry";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // colPID
             // 
             this.colPID.HeaderText = "Person ID";
@@ -476,6 +462,20 @@
             this.colListedByDI.Name = "colListedByDI";
             this.colListedByDI.ReadOnly = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(2, 2);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.label9.Size = new System.Drawing.Size(251, 35);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Filtered Data: All Data Entry";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -526,9 +526,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMPSPS;
+        private System.Windows.Forms.ComboBox cmbPPOCPODistrict;
+        private System.Windows.Forms.ComboBox cmbPRORegion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvPersonalities;
