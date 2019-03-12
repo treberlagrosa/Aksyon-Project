@@ -1185,6 +1185,8 @@ namespace Aksyon_Project
         private void UserDataWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainWindow mainWin = new MainWindow();
+            mainWin.MdiParent = ParentWindow.ActiveForm;
+            mainWin.Dock = DockStyle.Fill;
             mainWin.Show();
             this.Hide();
             return;
@@ -1360,6 +1362,8 @@ namespace Aksyon_Project
         private void btnCancel_Click(object sender, EventArgs e)
         {
             MainWindow mainWin = new MainWindow();
+            mainWin.MdiParent = ParentWindow.ActiveForm;
+            mainWin.Dock = DockStyle.Fill;
             mainWin.Show();
             this.Hide();
         }
@@ -2099,6 +2103,5 @@ namespace Aksyon_Project
             return returnImage;
 
         }
-
     }
 }

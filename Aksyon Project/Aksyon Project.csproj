@@ -107,24 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIConfig.cs">
-      <DependentUpon>ApiConfigModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApiConfigModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiConfigModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApiConfigModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiConfigModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApiConfigModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiConfigModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="APIConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,8 +131,15 @@
     <Compile Include="MainWindow_UserData.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ParentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParentWindow.Designer.cs">
+      <DependentUpon>ParentWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RootSearchPersonalities.cs" />
     <Compile Include="UserDataWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +155,9 @@
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ParentWindow.resx">
+      <DependentUpon>ParentWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -179,13 +171,6 @@
     <EmbeddedResource Include="UserDataWindow.resx">
       <DependentUpon>UserDataWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="ApiConfigModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ApiConfigModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ApiConfigModel.edmx.diagram">
-      <DependentUpon>ApiConfigModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -216,19 +201,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApiConfigModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ApiConfigModel.edmx</DependentUpon>
-      <LastGenOutput>ApiConfigModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ApiConfigModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ApiConfigModel.edmx</DependentUpon>
-      <LastGenOutput>ApiConfigModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <None Include="Resources\bg-prints.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

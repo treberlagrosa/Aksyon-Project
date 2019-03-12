@@ -56,17 +56,17 @@
             this.txtPesonalityName = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chkMissingRightLittle = new System.Windows.Forms.CheckBox();
-            this.chkMissingRightRing = new System.Windows.Forms.CheckBox();
-            this.chkMissingRightMiddle = new System.Windows.Forms.CheckBox();
-            this.chkMissingRightIndex = new System.Windows.Forms.CheckBox();
-            this.chkMissingRightThumb = new System.Windows.Forms.CheckBox();
             this.chkMissingLeftThumb = new System.Windows.Forms.CheckBox();
             this.chkMissingLeftIndex = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightRing = new System.Windows.Forms.CheckBox();
             this.chkMissingLeftMiddle = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightMiddle = new System.Windows.Forms.CheckBox();
             this.chkMissingLeftRing = new System.Windows.Forms.CheckBox();
+            this.chkMissingRightIndex = new System.Windows.Forms.CheckBox();
             this.chkMissingLeftLittle = new System.Windows.Forms.CheckBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.chkMissingRightThumb = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.btnAcquire = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -138,6 +138,7 @@
             // 
             // pboxRightLittle
             // 
+            this.pboxRightLittle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxRightLittle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxRightLittle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxRightLittle.Location = new System.Drawing.Point(923, 169);
@@ -149,6 +150,7 @@
             // 
             // pboxRightRing
             // 
+            this.pboxRightRing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxRightRing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxRightRing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxRightRing.Location = new System.Drawing.Point(693, 169);
@@ -160,6 +162,7 @@
             // 
             // pboxRightMiddle
             // 
+            this.pboxRightMiddle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxRightMiddle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxRightMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxRightMiddle.Location = new System.Drawing.Point(463, 169);
@@ -171,6 +174,7 @@
             // 
             // pboxRightIndex
             // 
+            this.pboxRightIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxRightIndex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxRightIndex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxRightIndex.Location = new System.Drawing.Point(233, 169);
@@ -182,6 +186,7 @@
             // 
             // pboxRightThumb
             // 
+            this.pboxRightThumb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxRightThumb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxRightThumb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxRightThumb.Location = new System.Drawing.Point(3, 169);
@@ -193,6 +198,7 @@
             // 
             // pboxLeftLittle
             // 
+            this.pboxLeftLittle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxLeftLittle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxLeftLittle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxLeftLittle.Location = new System.Drawing.Point(923, 26);
@@ -204,6 +210,7 @@
             // 
             // pboxLeftRing
             // 
+            this.pboxLeftRing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxLeftRing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxLeftRing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxLeftRing.Location = new System.Drawing.Point(693, 26);
@@ -215,6 +222,7 @@
             // 
             // pboxLeftMiddle
             // 
+            this.pboxLeftMiddle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxLeftMiddle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxLeftMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxLeftMiddle.Location = new System.Drawing.Point(463, 26);
@@ -226,6 +234,7 @@
             // 
             // pboxLeftIndex
             // 
+            this.pboxLeftIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxLeftIndex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxLeftIndex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxLeftIndex.Location = new System.Drawing.Point(233, 26);
@@ -239,6 +248,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(923, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(227, 23);
@@ -250,6 +260,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(693, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(224, 23);
@@ -261,6 +272,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(463, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(224, 23);
@@ -272,6 +284,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(233, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(224, 23);
@@ -283,6 +296,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(224, 23);
@@ -294,6 +308,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(3, 143);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(224, 23);
@@ -305,6 +320,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(233, 143);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(224, 23);
@@ -316,6 +332,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(463, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(224, 23);
@@ -327,6 +344,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(693, 143);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(224, 23);
@@ -338,6 +356,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(923, 143);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(227, 23);
@@ -347,6 +366,7 @@
             // 
             // pboxLeftThumb
             // 
+            this.pboxLeftThumb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pboxLeftThumb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboxLeftThumb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxLeftThumb.Location = new System.Drawing.Point(3, 26);
@@ -380,8 +400,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.groupBox1.Controls.Add(this.txtPesonalityName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 137);
@@ -392,7 +414,8 @@
             // 
             this.txtPesonalityName.AutoSize = true;
             this.txtPesonalityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesonalityName.Location = new System.Drawing.Point(6, 21);
+            this.txtPesonalityName.ForeColor = System.Drawing.Color.White;
+            this.txtPesonalityName.Location = new System.Drawing.Point(9, 20);
             this.txtPesonalityName.Name = "txtPesonalityName";
             this.txtPesonalityName.Size = new System.Drawing.Size(132, 20);
             this.txtPesonalityName.TabIndex = 0;
@@ -417,150 +440,193 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.chkMissingRightLittle);
-            this.groupBox3.Controls.Add(this.chkMissingRightRing);
-            this.groupBox3.Controls.Add(this.chkMissingRightMiddle);
-            this.groupBox3.Controls.Add(this.chkMissingRightIndex);
-            this.groupBox3.Controls.Add(this.chkMissingRightThumb);
-            this.groupBox3.Controls.Add(this.chkMissingLeftThumb);
-            this.groupBox3.Controls.Add(this.chkMissingLeftIndex);
-            this.groupBox3.Controls.Add(this.chkMissingLeftMiddle);
-            this.groupBox3.Controls.Add(this.chkMissingLeftRing);
-            this.groupBox3.Controls.Add(this.chkMissingLeftLittle);
-            this.groupBox3.Controls.Add(this.pictureBox11);
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.groupBox3.Controls.Add(this.tableLayoutPanel4);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(779, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(383, 137);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Missing Fingers";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingRightLittle, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingLeftThumb, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingLeftIndex, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingRightRing, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingLeftMiddle, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingRightMiddle, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingLeftRing, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingRightIndex, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingLeftLittle, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.chkMissingRightThumb, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 5;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(377, 118);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
             // chkMissingRightLittle
             // 
             this.chkMissingRightLittle.AutoSize = true;
             this.chkMissingRightLittle.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingRightLittle.Location = new System.Drawing.Point(345, 32);
+            this.chkMissingRightLittle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingRightLittle.ForeColor = System.Drawing.Color.White;
+            this.chkMissingRightLittle.Location = new System.Drawing.Point(191, 95);
             this.chkMissingRightLittle.Name = "chkMissingRightLittle";
-            this.chkMissingRightLittle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingRightLittle.Size = new System.Drawing.Size(183, 20);
             this.chkMissingRightLittle.TabIndex = 10;
+            this.chkMissingRightLittle.Text = "Right Little";
             this.chkMissingRightLittle.UseVisualStyleBackColor = false;
-            // 
-            // chkMissingRightRing
-            // 
-            this.chkMissingRightRing.AutoSize = true;
-            this.chkMissingRightRing.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingRightRing.Location = new System.Drawing.Point(306, 27);
-            this.chkMissingRightRing.Name = "chkMissingRightRing";
-            this.chkMissingRightRing.Size = new System.Drawing.Size(15, 14);
-            this.chkMissingRightRing.TabIndex = 9;
-            this.chkMissingRightRing.UseVisualStyleBackColor = false;
-            // 
-            // chkMissingRightMiddle
-            // 
-            this.chkMissingRightMiddle.AutoSize = true;
-            this.chkMissingRightMiddle.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingRightMiddle.Location = new System.Drawing.Point(268, 32);
-            this.chkMissingRightMiddle.Name = "chkMissingRightMiddle";
-            this.chkMissingRightMiddle.Size = new System.Drawing.Size(15, 14);
-            this.chkMissingRightMiddle.TabIndex = 8;
-            this.chkMissingRightMiddle.UseVisualStyleBackColor = false;
-            // 
-            // chkMissingRightIndex
-            // 
-            this.chkMissingRightIndex.AutoSize = true;
-            this.chkMissingRightIndex.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingRightIndex.Location = new System.Drawing.Point(236, 45);
-            this.chkMissingRightIndex.Name = "chkMissingRightIndex";
-            this.chkMissingRightIndex.Size = new System.Drawing.Size(15, 14);
-            this.chkMissingRightIndex.TabIndex = 7;
-            this.chkMissingRightIndex.UseVisualStyleBackColor = false;
-            // 
-            // chkMissingRightThumb
-            // 
-            this.chkMissingRightThumb.AutoSize = true;
-            this.chkMissingRightThumb.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingRightThumb.Location = new System.Drawing.Point(221, 102);
-            this.chkMissingRightThumb.Name = "chkMissingRightThumb";
-            this.chkMissingRightThumb.Size = new System.Drawing.Size(15, 14);
-            this.chkMissingRightThumb.TabIndex = 6;
-            this.chkMissingRightThumb.UseVisualStyleBackColor = false;
             // 
             // chkMissingLeftThumb
             // 
             this.chkMissingLeftThumb.AutoSize = true;
             this.chkMissingLeftThumb.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingLeftThumb.Location = new System.Drawing.Point(153, 102);
+            this.chkMissingLeftThumb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingLeftThumb.ForeColor = System.Drawing.Color.White;
+            this.chkMissingLeftThumb.Location = new System.Drawing.Point(3, 3);
             this.chkMissingLeftThumb.Name = "chkMissingLeftThumb";
-            this.chkMissingLeftThumb.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftThumb.Size = new System.Drawing.Size(182, 17);
             this.chkMissingLeftThumb.TabIndex = 5;
+            this.chkMissingLeftThumb.Text = "Left Thumb";
             this.chkMissingLeftThumb.UseVisualStyleBackColor = false;
             // 
             // chkMissingLeftIndex
             // 
             this.chkMissingLeftIndex.AutoSize = true;
             this.chkMissingLeftIndex.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingLeftIndex.Location = new System.Drawing.Point(138, 45);
+            this.chkMissingLeftIndex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingLeftIndex.ForeColor = System.Drawing.Color.White;
+            this.chkMissingLeftIndex.Location = new System.Drawing.Point(3, 26);
             this.chkMissingLeftIndex.Name = "chkMissingLeftIndex";
-            this.chkMissingLeftIndex.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftIndex.Size = new System.Drawing.Size(182, 17);
             this.chkMissingLeftIndex.TabIndex = 4;
+            this.chkMissingLeftIndex.Text = "Left Index";
             this.chkMissingLeftIndex.UseVisualStyleBackColor = false;
+            // 
+            // chkMissingRightRing
+            // 
+            this.chkMissingRightRing.AutoSize = true;
+            this.chkMissingRightRing.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightRing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingRightRing.ForeColor = System.Drawing.Color.White;
+            this.chkMissingRightRing.Location = new System.Drawing.Point(191, 72);
+            this.chkMissingRightRing.Name = "chkMissingRightRing";
+            this.chkMissingRightRing.Size = new System.Drawing.Size(183, 17);
+            this.chkMissingRightRing.TabIndex = 9;
+            this.chkMissingRightRing.Text = "Right Ring";
+            this.chkMissingRightRing.UseVisualStyleBackColor = false;
             // 
             // chkMissingLeftMiddle
             // 
             this.chkMissingLeftMiddle.AutoSize = true;
             this.chkMissingLeftMiddle.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingLeftMiddle.Location = new System.Drawing.Point(106, 32);
+            this.chkMissingLeftMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingLeftMiddle.ForeColor = System.Drawing.Color.White;
+            this.chkMissingLeftMiddle.Location = new System.Drawing.Point(3, 49);
             this.chkMissingLeftMiddle.Name = "chkMissingLeftMiddle";
-            this.chkMissingLeftMiddle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftMiddle.Size = new System.Drawing.Size(182, 17);
             this.chkMissingLeftMiddle.TabIndex = 3;
+            this.chkMissingLeftMiddle.Text = "Left Middle";
             this.chkMissingLeftMiddle.UseVisualStyleBackColor = false;
+            // 
+            // chkMissingRightMiddle
+            // 
+            this.chkMissingRightMiddle.AutoSize = true;
+            this.chkMissingRightMiddle.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingRightMiddle.ForeColor = System.Drawing.Color.White;
+            this.chkMissingRightMiddle.Location = new System.Drawing.Point(191, 49);
+            this.chkMissingRightMiddle.Name = "chkMissingRightMiddle";
+            this.chkMissingRightMiddle.Size = new System.Drawing.Size(183, 17);
+            this.chkMissingRightMiddle.TabIndex = 8;
+            this.chkMissingRightMiddle.Text = "Right Middle";
+            this.chkMissingRightMiddle.UseVisualStyleBackColor = false;
             // 
             // chkMissingLeftRing
             // 
             this.chkMissingLeftRing.AutoSize = true;
             this.chkMissingLeftRing.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingLeftRing.Location = new System.Drawing.Point(68, 26);
+            this.chkMissingLeftRing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingLeftRing.ForeColor = System.Drawing.Color.White;
+            this.chkMissingLeftRing.Location = new System.Drawing.Point(3, 72);
             this.chkMissingLeftRing.Name = "chkMissingLeftRing";
-            this.chkMissingLeftRing.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftRing.Size = new System.Drawing.Size(182, 17);
             this.chkMissingLeftRing.TabIndex = 2;
+            this.chkMissingLeftRing.Text = "Left Ring";
             this.chkMissingLeftRing.UseVisualStyleBackColor = false;
+            // 
+            // chkMissingRightIndex
+            // 
+            this.chkMissingRightIndex.AutoSize = true;
+            this.chkMissingRightIndex.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightIndex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingRightIndex.ForeColor = System.Drawing.Color.White;
+            this.chkMissingRightIndex.Location = new System.Drawing.Point(191, 26);
+            this.chkMissingRightIndex.Name = "chkMissingRightIndex";
+            this.chkMissingRightIndex.Size = new System.Drawing.Size(183, 17);
+            this.chkMissingRightIndex.TabIndex = 7;
+            this.chkMissingRightIndex.Text = "Right Index";
+            this.chkMissingRightIndex.UseVisualStyleBackColor = false;
             // 
             // chkMissingLeftLittle
             // 
             this.chkMissingLeftLittle.AutoSize = true;
             this.chkMissingLeftLittle.BackColor = System.Drawing.Color.Transparent;
-            this.chkMissingLeftLittle.Location = new System.Drawing.Point(25, 27);
+            this.chkMissingLeftLittle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingLeftLittle.ForeColor = System.Drawing.Color.White;
+            this.chkMissingLeftLittle.Location = new System.Drawing.Point(3, 95);
             this.chkMissingLeftLittle.Name = "chkMissingLeftLittle";
-            this.chkMissingLeftLittle.Size = new System.Drawing.Size(15, 14);
+            this.chkMissingLeftLittle.Size = new System.Drawing.Size(182, 20);
             this.chkMissingLeftLittle.TabIndex = 1;
+            this.chkMissingLeftLittle.Text = "Left Little";
             this.chkMissingLeftLittle.UseVisualStyleBackColor = false;
             // 
-            // pictureBox11
+            // chkMissingRightThumb
             // 
-            this.pictureBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox11.Image = global::Aksyon_Project.Properties.Resources._2handprints;
-            this.pictureBox11.Location = new System.Drawing.Point(3, 16);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(377, 118);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 0;
-            this.pictureBox11.TabStop = false;
+            this.chkMissingRightThumb.AutoSize = true;
+            this.chkMissingRightThumb.BackColor = System.Drawing.Color.Transparent;
+            this.chkMissingRightThumb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMissingRightThumb.ForeColor = System.Drawing.Color.White;
+            this.chkMissingRightThumb.Location = new System.Drawing.Point(191, 3);
+            this.chkMissingRightThumb.Name = "chkMissingRightThumb";
+            this.chkMissingRightThumb.Size = new System.Drawing.Size(183, 17);
+            this.chkMissingRightThumb.TabIndex = 6;
+            this.chkMissingRightThumb.Text = "Right Thumb";
+            this.chkMissingRightThumb.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.btnAcquire);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(391, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(382, 137);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Export";
             // 
             // button5
             // 
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(156, 59);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(114, 48);
@@ -570,6 +636,7 @@
             // 
             // btnAcquire
             // 
+            this.btnAcquire.ForeColor = System.Drawing.Color.Black;
             this.btnAcquire.Location = new System.Drawing.Point(35, 59);
             this.btnAcquire.Name = "btnAcquire";
             this.btnAcquire.Size = new System.Drawing.Size(114, 48);
@@ -580,6 +647,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(208, 17);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -600,6 +668,7 @@
             this.tableLayoutPanel3.SetColumnSpan(this.groupBox4, 8);
             this.groupBox4.Controls.Add(this.tableLayoutPanel1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1159, 307);
@@ -652,14 +721,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1165, 491);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.lstScannedObjects);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserDataWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserDataWindow_FormClosing);
             this.Load += new System.EventHandler(this.UserDataWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -678,8 +747,8 @@
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -711,7 +780,6 @@
         private System.Windows.Forms.CheckBox chkMissingLeftMiddle;
         private System.Windows.Forms.CheckBox chkMissingLeftRing;
         private System.Windows.Forms.CheckBox chkMissingLeftLittle;
-        private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -737,5 +805,6 @@
         private System.Windows.Forms.ContextMenuStrip popAcquireItemMenu;
         private System.Windows.Forms.Label txtPesonalityName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
     }
 }

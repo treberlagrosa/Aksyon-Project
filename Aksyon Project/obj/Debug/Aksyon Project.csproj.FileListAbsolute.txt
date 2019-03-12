@@ -38,3 +38,4 @@ C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.A
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.dll
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\bin\Debug\Newtonsoft.Json.xml
+C:\Users\8LAYER11\Desktop\git\greenbit\Aksyon Project\obj\Debug\Aksyon_Project.ParentWindow.resources

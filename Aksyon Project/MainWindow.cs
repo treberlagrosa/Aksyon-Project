@@ -85,15 +85,15 @@ namespace Aksyon_Project
 
             // StripeAcquisition not yet certified
             DemoConfig.AcquisitionOptions &= ~GBMSGUI.AcquisitionOption.EnableRollStripeAcquisition;
-
-            //LoadUsersList();
-            loadPersonalities();
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
         {
             // refresh devices list
             btnReload_Click(this, null);
+            //LoadUsersList();
+            requestData("/api/data");
+            loadPersonalities();
         }
 
         private bool FillDeviceList()
@@ -129,9 +129,10 @@ namespace Aksyon_Project
             if (DeviceNumber == 0)
             {
                 btnNew.Enabled = false;
-                MessageBox.Show("No attached device found!",
-                    Application.ProductName,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("No attached device found!",
+                //    Application.ProductName,
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             else
                 btnNew.Enabled = true;
@@ -474,6 +475,7 @@ namespace Aksyon_Project
                     string name;
                     if (jobject.personalities.Count != 0)
                     {
+                        Console.WriteLine(jobject.personalities.Count + " personalities have been loaded.");
                         for (int i = 0; i < jobject.personalities.Count; i++)
                         {
                             name = jobject.personalities[i].first_name + " " + jobject.personalities[i].last_name;
@@ -654,11 +656,6 @@ namespace Aksyon_Project
             public List<Personality> personalities { get; set; }
         }
 
-        void searchPersonalities()
-        {
-
-        }
-
         private void dgvPersonalities_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedPersonality.id = dgvPersonalities.Rows[e.RowIndex].Cells["colPID"].Value.ToString();
@@ -667,7 +664,358 @@ namespace Aksyon_Project
             Console.WriteLine("Selected Personality id " + selectedPersonality.id);
             UserForm.ViewMode = false;
             this.Hide();
+            UserForm.MdiParent = ParentWindow.ActiveForm;
+            ParentWindow.activeChildForm.childForm = null;
+            ParentWindow.activeChildForm.childForm = UserForm;
+            UserForm.Dock = DockStyle.Fill;
             UserForm.Show();
+        }
+
+        void requestData(string ip)
+        {
+            string url = Properties.Settings.Default.ip + ip;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+            IRestResponse response = client.Execute(request);
+            var jobject = JsonConvert.DeserializeObject<RData>(response.Content);
+            int index = jobject.pros.Count;
+            for (int i = 0; i < index; i++)
+            {
+                ComboboxItemPRORegion item = new ComboboxItemPRORegion();
+                item.Text = jobject.pros[i].description;
+                item.Value = jobject.pros[i].id;
+                cmbPRORegion.Items.Add(item);
+            }
+            int qIndex = jobject.qualifiers.Count;
+            for (int i = 0; i < qIndex; i++)
+            {
+                ComboboxItemQualifiers qItems = new ComboboxItemQualifiers();
+                qItems.Text = jobject.qualifiers[i].description;
+                qItems.Value = jobject.qualifiers[i].id;
+                cmb_qualifier.Items.Add(qItems);
+            }
+        }
+
+        void requestPPO(string ip, string pro_id)
+        {
+            string url = Properties.Settings.Default.ip + ip;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+            request.AddParameter("pro_id", pro_id);
+            IRestResponse response = client.Execute(request);
+            var jobject = JsonConvert.DeserializeObject<RPPOS>(response.Content);
+            int index = jobject.ppos.Count;
+            for (int i = 0; i < index; i++)
+            {
+                ComboboxItemPPO item = new ComboboxItemPPO();
+                item.Text = jobject.ppos[i].description;
+                item.Value = jobject.ppos[i].id;
+                cmbPPOCPODistrict.Items.Add(item);
+            }
+        }
+
+        void requestMPS(string ip, string pro_id, string ppo_id)
+        {
+            string url = Properties.Settings.Default.ip + ip;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+            request.AddParameter("pro_id", pro_id);
+            request.AddParameter("ppo_id", ppo_id);
+            IRestResponse response = client.Execute(request);
+            var jobject = JsonConvert.DeserializeObject<RMPS>(response.Content);
+            int index = jobject.mps.Count;
+            for (int i = 0; i < index; i++)
+            {
+                ComboboxItemMPS item = new ComboboxItemMPS();
+                item.Text = jobject.mps[i].description;
+                item.Value = jobject.mps[i].id;
+                cmbMPSPS.Items.Add(item);
+            }
+        }
+
+        //for request Data
+        public class Qualifier
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Occupation
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Education
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Language
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Hvtslt
+        {
+            public int id { get; set; }
+            public int hvt_slt_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class DrugPersonStatu
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+            public object created_at { get; set; }
+            public object updated_at { get; set; }
+        }
+
+        public class ClassifcationSuspect
+        {
+            public int id { get; set; }
+            public int class_suspect_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Ethnic
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class Rank
+        {
+            public int id { get; set; }
+            public string code { get; set; }
+            public string description { get; set; }
+            public object created_at { get; set; }
+            public object updated_at { get; set; }
+        }
+
+        public class Pro
+        {
+            public int id { get; set; }
+            public string description { get; set; }
+            public int seq { get; set; }
+            public int cat { get; set; }
+            public int pop { get; set; }
+        }
+
+        public class Regions
+        {
+            public int id { get; set; }
+            public string abbrev { get; set; }
+            public string description { get; set; }
+        }
+
+        public class OpnCategory
+        {
+            public int id { get; set; }
+            public string code { get; set; }
+            public string description { get; set; }
+        }
+
+        public class RData
+        {
+            public List<Qualifier> qualifiers { get; set; }
+            public List<Occupation> occupations { get; set; }
+            public List<Education> educations { get; set; }
+            public List<Language> languages { get; set; }
+            public List<Hvtslt> hvtslts { get; set; }
+            public List<DrugPersonStatu> drug_person_status { get; set; }
+            public List<ClassifcationSuspect> classifcation_suspect { get; set; }
+            public List<Ethnic> ethnics { get; set; }
+            public List<Rank> ranks { get; set; }
+            public List<Pro> pros { get; set; }
+            public List<Regions> regions { get; set; }
+            public List<OpnCategory> opn_categories { get; set; }
+        }
+
+        public class Ppos
+        {
+            public int id { get; set; }
+            public int pros_id { get; set; }
+            public int ppo_id { get; set; }
+            public string description { get; set; }
+        }
+
+        public class RPPOS
+        {
+            public List<Ppos> ppos { get; set; }
+        }
+
+        public class Mp
+        {
+            public int id { get; set; }
+            public int pro_id { get; set; }
+            public int ppo_id { get; set; }
+            public string description { get; set; }
+            public string uccn { get; set; }
+            public string municipal_code { get; set; }
+        }
+
+        public class RMPS
+        {
+            public List<Mp> mps { get; set; }
+        }
+
+        public class ComboboxItemPRORegion
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        public class ComboboxItemPPO
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        public class ComboboxItemMPS
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        public class ComboboxItemQualifiers
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+
+        private void cmbPRORegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbPPOCPODistrict.Text = "";
+            cmbPPOCPODistrict.Items.Clear();
+            requestPPO("/api/ppos", (cmbPRORegion.SelectedItem as ComboboxItemPRORegion).Value.ToString());
+        }
+
+        private void cmbPPOCPODistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbMPSPS.Text = "";
+            cmbMPSPS.Items.Clear();
+            requestMPS("/api/mps", (cmbPRORegion.SelectedItem as ComboboxItemPRORegion).Value.ToString(), (cmbPPOCPODistrict.SelectedItem as ComboboxItemPPO).Value.ToString());
+        }
+
+        private void cmbMPSPS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            searchPersonalities("/api/personalities/search");
+        }
+
+        void searchPersonalities(string ip)
+        {
+            try
+            {
+                string url = Properties.Settings.Default.ip + ip;
+                var client = new RestClient(url);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Authorization", LoginWindow.apiCon.token_type + " " + LoginWindow.apiCon.access_token);
+                request.AddParameter("pro_id", (cmbPRORegion.SelectedItem as ComboboxItemPRORegion).Value.ToString());
+                request.AddParameter("ppo_id", (cmbPPOCPODistrict.SelectedItem as ComboboxItemPPO).Value.ToString());
+                request.AddParameter("mps_id", (cmbMPSPS.SelectedItem as ComboboxItemMPS).Value.ToString());
+                request.AddParameter("firstname", txt_firstname.Text);
+                request.AddParameter("lastname", txt_lastname.Text);
+                request.AddParameter("middlename", txt_middlename.Text);
+                request.AddParameter("alias", txt_alias.Text);
+                request.AddParameter("qualifier_id", cmb_qualifier.SelectedText);
+                request.AddParameter("birthday", dtp_birthday.Text);
+                request.AddParameter("data_owner", LoginWindow.apiCon.data_owner);
+                IRestResponse response = client.Execute(request);
+                if ((int)response.StatusCode == 200)
+                {
+                    
+                    var jobject = JsonConvert.DeserializeObject<RootSearchPersonalities.RootObject>(response.Content);
+                    Console.WriteLine(jobject.personalities.Count + " personalities found");
+                    string name;
+                    if (jobject.personalities.Count == 0)
+                    {
+                        dgvPersonalities.Columns.Clear();
+                        dgvPersonalities.Columns.Add("colNullResult", "No Records Found");
+                        return;
+                    }
+                    dgvPersonalities.Columns.Clear();
+                    loadDGVColumns();
+                    dgvPersonalities.Rows.Clear();
+                    if (jobject.personalities.Count != 0)
+                    {
+                        for (int i = 0; i < jobject.personalities.Count; i++)
+                        {
+                            name = jobject.personalities[i].first_name + " " + jobject.personalities[i].last_name;
+
+                            dgvPersonalities.Rows.Add(new object[] {
+                    jobject.personalities[i].person_id,
+                    name,
+                    jobject.personalities[i].regional_office.description,
+                    jobject.personalities[i].provincial_office.description,
+                    jobject.personalities[i].police_station.description,
+                    jobject.personalities[i].category_hvtslt.description,
+                    jobject.personalities[i].class_suspect.description,
+                    jobject.personalities[i].drugperson_status.description,
+                    jobject.personalities[i].date_entry_watchlist,
+                    jobject.personalities[i].listed
+                });
+                        }
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void loadDGVColumns()
+        {
+            dgvPersonalities.Columns.Add("colPID", "Person ID");
+            dgvPersonalities.Columns[0].Visible = false;
+            dgvPersonalities.Columns.Add("colName", "Name");
+            dgvPersonalities.Columns.Add("colPRO", "PRO");
+            dgvPersonalities.Columns.Add("colPPO", "PPO");
+            dgvPersonalities.Columns.Add("colPS", "PS");
+            dgvPersonalities.Columns.Add("colHVTSLT", "HVT/SLT");
+            dgvPersonalities.Columns.Add("colClassification", "Classification");
+            dgvPersonalities.Columns.Add("colStatus", "Status");
+            dgvPersonalities.Columns.Add("colDateEntry", "Date of Entry");
+            dgvPersonalities.Columns.Add("colListedBy", "Listed by DI");
+        }
+
+        private void btn_loadPersonalities_Click(object sender, EventArgs e)
+        {
+            dgvPersonalities.Rows.Clear();
+            loadPersonalities();
         }
     }
 }
